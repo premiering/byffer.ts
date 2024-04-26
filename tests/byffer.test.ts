@@ -36,6 +36,16 @@ describe("Test byffer for reading and writing", () => {
 
         expect(buf.readInt()).toBe(num);
     });
+    test('shorts', () => {
+        let buf = ByteBuf.emptyBuffer(128);
+        buf.writeShort(-23433);
+        buf.writeShort(4545);
+        buf.writeShort(0);
+
+        expect(buf.readShort()).toBe(-23433);
+        expect(buf.readShort()).toBe(4545);
+        expect(buf.readShort()).toBe(0);
+    });
     test('bytes', () => {
         let buf = ByteBuf.emptyBuffer(128);
         buf.writeByteSigned(-128);
