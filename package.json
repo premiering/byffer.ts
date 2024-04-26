@@ -1,0 +1,31 @@
+{
+  "name": "byffer.ts",
+  "version": "0.1",
+  "description": "Easy library to manipulate buffers of bytes.",
+  "keywords": [
+    "bytebuf",
+    "bytes",
+    "bit",
+    "buffer",
+    "bytebuffer",
+    "byffer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/premiering/byffer.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/premiering/byffer.ts/issues"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "premiering (https://github.com/premiering)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.5"
+  }
+}
