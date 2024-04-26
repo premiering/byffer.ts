@@ -207,6 +207,22 @@ export class ByteBuf {
     }
 
     /**
+     * Get the current reader index
+     * @returns reader index
+     */
+    public getReaderIndex(): number {
+        return this.readerIndex;
+    }
+
+    /**
+     * Get the current writer index
+     * @returns writer index
+     */
+    public getWriterIndex(): number {
+        return this.writerIndex;
+    }
+
+    /**
      * Sets the reader index to the specified number
      * @param i index of the reader (bytes)
      */
