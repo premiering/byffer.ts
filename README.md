@@ -1,8 +1,8 @@
 # byffer.ts
-An easy library to manipulate byte buffers in TypeScript.
+An easy library to read manipulate byte buffers in TypeScript.
 
 ## Usage
-You can create a `ByteBuf` instance to store and manipulate your data.
+You can create a `ByteBuf` instance to store and read manipulate your data.
 
 It can be created empty, or using pre-existing data.
 ```ts
@@ -15,6 +15,7 @@ buf = ByteBuf.from(awesome_buffer);
 buf.writeInt(1337);
 buf.writeByteUnsigned(255);
 buf.writeByteString("I'm saying hi, from byffer!");
+buf.writeFloat(-999999.3125);
 
 // Then you can take back the data as an ArrayBuffer
 let data: ArrayBuffer = buf.bytes();
@@ -23,6 +24,7 @@ let data: ArrayBuffer = buf.bytes();
 let i = buf.readInt(); // Returns 1337
 let b = buf.readByteUnsigned(); // Returns 255
 let s = buf.readByteString(); // Returns "I'm saying hi, from byffer!"
+let f = buf.readFloat(); // Returns -999999.3125
 ```
 
 ## License
