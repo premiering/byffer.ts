@@ -113,4 +113,18 @@ describe("Miscellaneous tests", () => {
         expect(s).toBe("I'm saying hi, from byffer!");
         expect(f).toBe(-999999.3125);
     });
+    test('Reader and writer skipping', () => {
+        let buf: ByteBuf = ByteBuf.emptyBuffer(128);
+        buf.writeInt(21343);
+        buf.writeShort(555);
+        //6 bytes total
+
+        buf.skipReader(4);
+        expect(buf.readShort()).toBe(555);
+
+        buf.skipWriter(4);
+        buf.writeByteString("Hello, hello, hello!");
+        buf.skipReader(4);
+        expect(buf.readByteString()).toBe("Hello, hello, hello!");
+    });
 });
