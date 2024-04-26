@@ -1,10 +1,20 @@
 # byffer.ts
 An easy library to read manipulate byte buffers in TypeScript.
 
-## Usage
+It is also on `npm` [here](https://www.npmjs.com/package/byffer.ts).
+
+## Installation
+Installation is made easy with `npm`
+```shell
+npm install byffer.ts
+```
+
+## Using byffer.ts
 You can create a `ByteBuf` instance to store and read manipulate your data.
 
 It can be created empty, or using pre-existing data.
+
+Here's an example of using byffer.ts:
 ```ts
 // Create an empty buffer with 128 bytes
 let buf: ByteBuf = ByteBuf.emptyBuffer(128);
