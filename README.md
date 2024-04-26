@@ -8,7 +8,7 @@ It can be created empty, or using pre-existing data.
 ```ts
 // Create an empty buffer with 128 bytes
 let buf: ByteBuf = ByteBuf.emptyBuffer(128);
-// or, use an existing Uint8Array
+// or, use an existing ArrayBuffer like class (ArrayBufferLike)
 buf = ByteBuf.from(awesome_buffer);
 
 // You can then write some data

@@ -18,8 +18,17 @@ export class ByteBuf {
      * @param {Uint8Array} buffer The existing array for the ByteBuf to use
      * @returns {ByteBuf} A new ByteBuf with the given array
      */
-    static from(buffer: Uint8Array): ByteBuf {
+    static from_uint8(buffer: Uint8Array): ByteBuf {
         return new ByteBuf(buffer);
+    }
+
+    /**
+     * Creates a ByteBuf containing the data of the buffer given
+     * @param {ArrayBuffer} buffer The existing array for the ByteBuf to use
+     * @returns {ByteBuf} A new ByteBuf with the given array
+     */
+    static from(buffer: ArrayBufferLike): ByteBuf {
+        return new ByteBuf(new Uint8Array(buffer));
     }
 
     /**
