@@ -57,3 +57,50 @@ describe("Test byffer for reading and writing", () => {
         expect(buf.readBool()).toBe(true);
     });
 });
+describe("Miscellaneous tests", () => {
+    test('README usage example', () => {
+        // Create an empty buffer with 128 bytes
+        let buf: ByteBuf = ByteBuf.emptyBuffer(128);
+
+        // You can then write some data
+        buf.writeInt(1337);
+        buf.writeByteUnsigned(255);
+        buf.writeByteString("I'm saying hi, from byffer!");
+        buf.writeFloat(-999999.3125);
+
+        // Or, read the data
+        let i = buf.readInt(); // Returns 1337
+        let b = buf.readByteUnsigned(); // Returns 255
+        let s = buf.readByteString(); // Returns "I'm saying hi, from byffer!"
+        let f = buf.readFloat();
+
+        expect(i).toBe(1337);
+        expect(b).toBe(255);
+        expect(s).toBe("I'm saying hi, from byffer!");
+        expect(f).toBe(-999999.3125);
+    });
+    test('ArrayBuffer conversion test', () => {
+        // We'll use the example data
+
+        let buf: ByteBuf = ByteBuf.emptyBuffer(128);
+
+        buf.writeInt(1337);
+        buf.writeByteUnsigned(255);
+        buf.writeByteString("I'm saying hi, from byffer!");
+        buf.writeFloat(-999999.3125);
+
+        let data = buf.bytes();
+
+        buf = ByteBuf.from(data);
+
+        let i = buf.readInt();
+        let b = buf.readByteUnsigned();
+        let s = buf.readByteString();
+        let f = buf.readFloat();
+
+        expect(i).toBe(1337);
+        expect(b).toBe(255);
+        expect(s).toBe("I'm saying hi, from byffer!");
+        expect(f).toBe(-999999.3125);
+    });
+});
