@@ -44,9 +44,8 @@ export class ByteBuf {
      * @returns Byte in boolean value
      */
     public readBool(): boolean {
-        let b: boolean = this.data.getInt8(this.readerIndex) == 1;
         this.readerIndex += 1;
-        return b;
+        return this.data.getInt8(this.readerIndex - 1) == 1;;
     }
 
     /**
@@ -54,9 +53,8 @@ export class ByteBuf {
      * @returns Byte in number value
      */
     public readByteSigned(): number {
-        let i = this.data.getInt8(this.readerIndex);
         this.readerIndex += 1;
-        return i;
+        return this.data.getInt8(this.readerIndex - 1);
     }
 
     /**
@@ -64,9 +62,8 @@ export class ByteBuf {
      * @returns Byte in number value
      */
     public readByteUnsigned(): number {
-        let i = this.data.getInt8(this.readerIndex);
         this.readerIndex += 1;
-        return i + 128;
+        return this.data.getInt8(this.readerIndex - 1) + 128;
     }
 
     /**
@@ -74,9 +71,8 @@ export class ByteBuf {
      * @returns Short in number value
      */
     public readShort(): number {
-        let i = this.data.getInt16(this.readerIndex);
         this.readerIndex += 2;
-        return i;
+        return this.data.getInt16(this.readerIndex - 2);
     }
 
     /**
@@ -84,9 +80,8 @@ export class ByteBuf {
      * @returns 4 byte floating number
      */
     public readFloat(): number {
-        let f = this.data.getFloat32(this.readerIndex);
         this.readerIndex += 4;
-        return f;
+        return this.data.getFloat32(this.readerIndex - 4);
     }
 
     /**
@@ -94,9 +89,8 @@ export class ByteBuf {
      * @returns 4 byte integer
      */
     public readInt(): number {
-        let i = this.data.getInt32(this.readerIndex);
         this.readerIndex += 4;
-        return i;
+        return this.data.getInt32(this.readerIndex - 4);
     }
 
     /**
@@ -104,9 +98,8 @@ export class ByteBuf {
      * @returns 8 byte (big) integer
      */
     public readLong(): bigint {
-        let i = this.data.getBigInt64(this.readerIndex);
         this.readerIndex += 8;
-        return i;
+        return this.data.getBigInt64(this.readerIndex - 8);
     }
 
     /**
@@ -117,7 +110,7 @@ export class ByteBuf {
      * @returns the read in string
      */
     public readByteString(): string {
-        let n = this.readInt();
+        const n = this.readInt();
         let s = "";
         for (let i = 0; i < n; i++) {
             s += String.fromCharCode(this.data.getUint8(this.readerIndex + i));

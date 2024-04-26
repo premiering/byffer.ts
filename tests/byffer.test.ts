@@ -2,8 +2,8 @@ import { ByteBuf } from "../src/byffer"
 
 describe("Test byffer for reading and writing", () => {
     test('strings', () => {
-        let buf = ByteBuf.emptyBuffer(128);
-        let s = "This is a test string, let's hope it come back fine...!!!!!_"
+        const buf = ByteBuf.emptyBuffer(128);
+        const s = "This is a test string, const's hope it come back fine...!!!!!_"
         // Write extra data before
         buf.writeByteSigned(1);
         // Write our string
@@ -16,28 +16,28 @@ describe("Test byffer for reading and writing", () => {
         expect(buf.readByteString()).toBe(s);
     });
     test('longs', () => {
-        let buf = ByteBuf.emptyBuffer(128);
-        let num = BigInt(-3484939373654123439);
+        const buf = ByteBuf.emptyBuffer(128);
+        const num = BigInt(-3484939373654123439);
         buf.writeLong(num);
 
         expect(buf.readLong()).toBe(num);
     });
     test('floats', () => {
-        let buf = ByteBuf.emptyBuffer(128);
-        let num = -999999.3125;
+        const buf = ByteBuf.emptyBuffer(128);
+        const num = -999999.3125;
         buf.writeFloat(num);
 
         expect(buf.readFloat()).toBe(num);
     });
     test('ints', () => {
-        let buf = ByteBuf.emptyBuffer(128);
-        let num = 949493737;
+        const buf = ByteBuf.emptyBuffer(128);
+        const num = 949493737;
         buf.writeInt(num);
 
         expect(buf.readInt()).toBe(num);
     });
     test('shorts', () => {
-        let buf = ByteBuf.emptyBuffer(128);
+        const buf = ByteBuf.emptyBuffer(128);
         buf.writeShort(-23433);
         buf.writeShort(4545);
         buf.writeShort(0);
@@ -47,7 +47,7 @@ describe("Test byffer for reading and writing", () => {
         expect(buf.readShort()).toBe(0);
     });
     test('bytes', () => {
-        let buf = ByteBuf.emptyBuffer(128);
+        const buf = ByteBuf.emptyBuffer(128);
         buf.writeByteSigned(-128);
         buf.writeByteSigned(127);
         buf.writeByteUnsigned(255);
@@ -57,7 +57,7 @@ describe("Test byffer for reading and writing", () => {
         expect(buf.readByteUnsigned()).toBe(255);
     });
     test('bools', () => {
-        let buf = ByteBuf.emptyBuffer(128);
+        const buf = ByteBuf.emptyBuffer(128);
         buf.writeBool(true);
         buf.writeBool(false);
         buf.writeBool(true);
@@ -70,7 +70,7 @@ describe("Test byffer for reading and writing", () => {
 describe("Miscellaneous tests", () => {
     test('README usage example', () => {
         // Create an empty buffer with 128 bytes
-        let buf: ByteBuf = ByteBuf.emptyBuffer(128);
+        const buf: ByteBuf = ByteBuf.emptyBuffer(128);
 
         // You can then write some data
         buf.writeInt(1337);
@@ -79,10 +79,10 @@ describe("Miscellaneous tests", () => {
         buf.writeFloat(-999999.3125);
 
         // Or, read the data
-        let i = buf.readInt(); // Returns 1337
-        let b = buf.readByteUnsigned(); // Returns 255
-        let s = buf.readByteString(); // Returns "I'm saying hi, from byffer!"
-        let f = buf.readFloat();
+        const i = buf.readInt(); // Returns 1337
+        const b = buf.readByteUnsigned(); // Returns 255
+        const s = buf.readByteString(); // Returns "I'm saying hi, from byffer!"
+        const f = buf.readFloat();
 
         expect(i).toBe(1337);
         expect(b).toBe(255);
@@ -99,14 +99,14 @@ describe("Miscellaneous tests", () => {
         buf.writeByteString("I'm saying hi, from byffer!");
         buf.writeFloat(-999999.3125);
 
-        let data = buf.bytes();
+        const data = buf.bytes();
 
         buf = ByteBuf.from(data);
 
-        let i = buf.readInt();
-        let b = buf.readByteUnsigned();
-        let s = buf.readByteString();
-        let f = buf.readFloat();
+        const i = buf.readInt();
+        const b = buf.readByteUnsigned();
+        const s = buf.readByteString();
+        const f = buf.readFloat();
 
         expect(i).toBe(1337);
         expect(b).toBe(255);
@@ -114,7 +114,7 @@ describe("Miscellaneous tests", () => {
         expect(f).toBe(-999999.3125);
     });
     test('Reader and writer skipping', () => {
-        let buf: ByteBuf = ByteBuf.emptyBuffer(128);
+        const buf: ByteBuf = ByteBuf.emptyBuffer(128);
         buf.writeInt(21343);
         buf.writeShort(555);
         //6 bytes total
