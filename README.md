@@ -1,5 +1,9 @@
 # byffer.ts
-An easy library to read manipulate byte buffers in TypeScript.
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/premiering/byffer.ts/node.js.yml)
+![NPM Version](https://img.shields.io/npm/v/byffer.ts)
+
+
+An easy library to read and manipulate byte buffers in TypeScript.
 
 It is also on `npm` [here](https://www.npmjs.com/package/byffer.ts).
 
