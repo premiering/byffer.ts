@@ -45,7 +45,7 @@ export class ByteBuf {
      */
     public readBool(): boolean {
         this.readerIndex += 1;
-        return this.data.getInt8(this.readerIndex - 1) == 1;;
+        return this.data.getInt8(this.readerIndex - 1) == 1;
     }
 
     /**
