@@ -7,6 +7,11 @@
         "resolveJsonModule": true,
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
+        "declaration": true,
+        "declarationDir": "types",
+        "sourceMap": true,
+        "outDir": "dist",
+        "emitDeclarationOnly": true,
     },
     "include": [
         "./src/**/*"

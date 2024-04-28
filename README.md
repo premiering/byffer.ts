@@ -20,6 +20,8 @@ It can be created empty, or using pre-existing data.
 
 Here's an example of using byffer.ts:
 ```ts
+import ByteBuf from 'byffer.ts';
+
 // Create an empty buffer with 128 bytes
 let buf: ByteBuf = ByteBuf.emptyBuffer(128);
 // or, use an existing ArrayBuffer like class (ArrayBufferLike)

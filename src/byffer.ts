@@ -1,5 +1,4 @@
-
-export class ByteBuf {
+export default class ByteBuf {
     private readerIndex: number = 0;
     private writerIndex: number = 0;
     private data: DataView;
