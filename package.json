@@ -1,6 +1,6 @@
 {
   "name": "byffer.ts",
-  "version": "v1.0.0",
+  "version": "1.0.1",
   "description": "Easy library to manipulate buffers of bytes.",
   "keywords": [
     "bytebuf",
