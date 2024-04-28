@@ -17,9 +17,6 @@
   "bugs": {
     "url": "https://github.com/premiering/byffer.ts/issues"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "test": "jest",
     "rollup": "rollup -c --bundleConfigAsCjs"
