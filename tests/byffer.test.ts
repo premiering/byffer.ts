@@ -1,4 +1,4 @@
-import { ByteBuf } from "../src/byffer"
+import ByteBuf from "../src/byffer"
 
 describe("Test byffer for reading and writing", () => {
     test('strings', () => {
